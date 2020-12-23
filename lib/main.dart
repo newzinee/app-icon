@@ -23,12 +23,6 @@ class MyPage extends StatelessWidget {
         title: Text('Appbar icon menu'),
         centerTitle: true,
         elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(Icons.menu), 
-          onPressed: () { 
-            print('menu button is clicked');
-           },
-        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart), 
@@ -43,6 +37,31 @@ class MyPage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+             currentAccountPicture: CircleAvatar(
+               backgroundImage: AssetImage('assets/beach.png'),
+               backgroundColor: Colors.white,
+             ),
+             accountName: Text('yoojin'),
+             accountEmail: Text('qvo7896@gmail.com'),
+             onDetailsPressed:(){
+               print('arrow is clicked');
+             },
+             decoration: BoxDecoration(
+               color: Colors.red[200],
+               borderRadius: BorderRadius.only(
+                 bottomLeft: Radius.circular(40.0),
+                 bottomRight: Radius.circular(40.0)
+               )
+             ),
+            )
+          ],
+        ),
       ),
     );
   }
